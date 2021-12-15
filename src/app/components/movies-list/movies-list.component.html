@@ -1,0 +1,18 @@
+<img
+  *ngIf="!movies"
+  src="https://i.stack.imgur.com/MEBIB.gif"
+/>
+
+<div *ngIf="movies?.length === 0">
+        There are no movies to display.
+</div>
+
+<div *ngFor="let movie of movies; let index = index" class="movie-container">
+        <div>{{ index + 1 }} {{ movie.title | lowercase }}</div>
+        <div>
+                {{ movie.releaseDate | date: "dd-MMMM-yyyy" | uppercase }}
+        </div>
+        <div>
+                {{ movie.price | currency }}
+        </div>
+</div>
